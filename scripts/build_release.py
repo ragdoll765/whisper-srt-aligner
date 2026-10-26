@@ -5,6 +5,7 @@ import sys
 import zipfile
 from pathlib import Path
 from whisper_srt_aligner import __version__
+from release_privacy import check_archive
 
 ROOT=Path(__file__).resolve().parents[1]
 DIST=ROOT/'dist'
@@ -27,6 +28,7 @@ windows=DIST/'windows'/f'WhisperSrtAligner-{__version__}-windows-x64.zip'
 if windows.is_file():assets.append(windows)
 checksums=[]
 for path in assets:
+    check_archive(path)
     digest=hashlib.sha256(path.read_bytes()).hexdigest()
     checksums.append(f'{digest}  {path.name}')
 (DIST/'SHA256SUMS.txt').write_text('\n'.join(checksums)+'\n',encoding='utf-8')

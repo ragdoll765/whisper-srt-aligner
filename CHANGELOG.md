@@ -1,5 +1,12 @@
 # Changelog
 
+## Build privacy — 2026-10-26
+
+- Remove local installation provenance and cached license bytecode from Windows
+  bundles; check release archives for private files and local home paths.
+- Replace the Windows ZIPs and checksums for 0.2.0 and 0.3.0 with sanitized copies.
+  Application code and runtime files are unchanged.
+
 ## 0.3.0 — 2026-10-20
 
 - Folder/season mode with configurable filename masks and recursive discovery.
